@@ -15,10 +15,7 @@ proc main {} {
      close $f_detail
      return
    }
-   #puts "\n[string repeat * 50]"
-   #puts "DEBUG: Biến master_data đang chứa gì bên trong?"
-   #puts "'$master_data'"
-   #puts "[string repeat * 50]\n"
+   
    set cell_report [cell_type_report $master_data]
    set summary_report [timing_summary_report $master_data]
    set hold_report [hold_report $master_data]
