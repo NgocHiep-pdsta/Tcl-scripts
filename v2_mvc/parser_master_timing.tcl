@@ -19,19 +19,20 @@ proc analyze_hold {filename} {
   set violated_list {}
   set total 0
   set violated 0
+  set hold_tns 0.0
   while {[gets $f line] >= 0} { 
-    if {[scan $line "%s slack=%f" cell val] != 2} { 
+    if {[scan $line "%s slack=%f" cell slack] != 2} { 
       continue
     }
-    set sf [expr {double($val)}]
     incr total
-    if {$sf < 0} {
+    if {$slack < 0} {
       incr violated
-      lappend violated_list [list $cell $sf]
+      lappend violated_list [list $cell $slack]
+      set hold_tns [expr {$hold_tns + $slack}]
     }
   }
   close $f
-  dict set result hold_data [list $total $violated $violated_list]
+  dict set result hold_data [list $total $violated $violated_list $hold_tns]
   return $result
 }
 proc parser_master_timing {filename hold_filename timing_details} {
@@ -73,7 +74,7 @@ proc parser_master_timing {filename hold_filename timing_details} {
 
    set hold_result [analyze_hold $hold_filename]
    if {$hold_result eq "FAILED"} {
-     dict set result hold_data [list 0 0 {}]
+     dict set result hold_data [list 0 0 {} 0]
    } else {
      dict set result hold_data [dict get $hold_result hold_data]
    }
@@ -86,4 +87,5 @@ proc parser_master_timing {filename hold_filename timing_details} {
 
    return $result
 }
+
 
