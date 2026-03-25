@@ -1,4 +1,3 @@
-
 proc hold_report {master_data} {
   set hold_data [dict get $master_data hold_data]
   lassign $hold_data total violated vlist tns
@@ -6,8 +5,8 @@ proc hold_report {master_data} {
   append text "  TOTAL: $total | VIOLATED: $violated \n"
   append text "---------------------------------\n"
   foreach v [lsort -real -index 1 $vlist] { 
-    lassign $v cell sf
-    append text [format "%-10s %-.3f ns   %s\n" $cell $sf [classify_hold $sf]]
+    lassign $v cell slack
+    append text [format "%-10s %-.3f ns  HOLD VIOLATION \n" $cell $slack]
   }
   append text "---------------------------------\n"
   append text [format "  %-8s : %-.3f ns" "HOLD_TNS" $tns]
