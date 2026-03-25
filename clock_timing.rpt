@@ -1,0 +1,8 @@
+# Format: FF_name  clock_domain  arrival_ps
+FF_REG_0   CLK_CORE   1250
+FF_REG_1   CLK_CORE   1380
+FF_REG_2   CLK_CORE   1190
+FF_REG_3   CLK_CORE   1420
+FF_REG_4   CLK_IO     2100
+FF_REG_5   CLK_IO     2350
+FF_REG_6   CLK_IO     1980

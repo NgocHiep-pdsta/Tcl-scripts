@@ -1,0 +1,10 @@
+# DRC Violations Report
+# Format: RULE_TYPE  layer  count  x1 y1 x2 y2
+SHORT     M1  5   10.5  20.3  11.0  20.8
+SPACING   M1  3   23.1  45.0  23.6  45.5
+SPACING   M2  4   89.4  34.5  89.9  35.0
+WIDTH     M2  1   45.2  78.1  45.5  78.6
+VIA_ENC   M3  2   67.8  12.3  68.3  12.8
+SHORT     M2  2   55.5  67.8  56.0  68.3
+SPACING   M1  6   12.0  56.7  12.5  57.2
+VIA_ENC   M4  1   34.5  89.2  35.0  89.7
