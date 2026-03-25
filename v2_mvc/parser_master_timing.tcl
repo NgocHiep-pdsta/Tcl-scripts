@@ -6,11 +6,6 @@ proc classify {slack} {
    return "MET"
 }
 
-proc classify_hold {slack} {
-   if {$slack < -0} {return "HOLD VIOLATION"}
-   return "HOLD MET"
-}
- 
 proc analyze_hold {filename} {
   if {[catch {open $filename r} f]} {
     return "FAILED"
