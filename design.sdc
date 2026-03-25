@@ -1,8 +1,0 @@
-create_clock -name CLK_CORE -period 10.0 -waveform {0 5} [get_ports clk]
-create_clock -name CLK_IO   -period 25.0 [get_ports io_clk]
-set_input_delay  -clock CLK_CORE -max 2.0 [get_ports {data_in*}]
-set_input_delay  -clock CLK_CORE -min 0.5 [get_ports {data_in*}]
-set_output_delay -clock CLK_CORE -max 1.5 [get_ports {data_out*}]
-set_false_path -from [get_clocks CLK_CORE] -to [get_clocks CLK_IO]
-set_multicycle_path -setup 2 -from [get_cells slow_reg*]
-set_multicycle_path -hold  1 -from [get_cells slow_reg*]

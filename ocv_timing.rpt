@@ -1,8 +1,0 @@
-# path_name  nominal_slack  derate_factor  ocv_slack
-PATH_CORE_0   0.352   0.97   0.241
-PATH_CORE_1  -0.128   0.97  -0.283
-PATH_IO_0    -0.890   0.95  -1.021
-PATH_IO_1     0.073   0.95  -0.031
-PATH_IO_2     0.180   0.95   0.062
-PATH_MEM_0    0.445   0.98   0.381
-PATH_MEM_1   -0.052   0.98  -0.103

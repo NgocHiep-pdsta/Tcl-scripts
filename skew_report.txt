@@ -1,5 +1,0 @@
------------------- CLOCK SKEW ANALYSIS ------------------
-  Domain      Min(ps)   Max(ps)   Skew(ps)  Status
-----------------------------------------------------------
-CLK_CORE      1190      1420      230       TIGHT_SKEW
-CLK_IO        1980      2350      370       BAD_SKEW
