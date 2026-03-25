@@ -3,7 +3,7 @@ proc timing_summary_report {master_data} {
    array set count [dict get $master_data count_array]
    set wns [dict get $master_data wns]
    set tns [dict get $master_data tns]
-   set paths [dict get $master_data path_list]
+   set worst_5 [dict get $master_data worst_5]
    set text "===== TIMING SUMMARY REPORT =====\n"
    append text [format "        Total path: %d\n" $total_path]
    append text "---------------------------------\n"
@@ -17,12 +17,11 @@ proc timing_summary_report {master_data} {
    append text [format "      TNS : %.3f ns\n" $tns]
    append text "\n"
    }
-   set sorted [lsort -real -index 1 $paths]
-   set top5 [lrange $sorted 0 4]
+   
    set rank 1
    append text "===== TOP 5 WORST PATHS =====\n"
    append text "---------------------------------\n"
-   foreach p $top5 {
+   foreach p $worst_5 {
      lassign $p cell slack status
      append text [format "%-3d %-10s %-10.3f %s\n" $rank $cell $slack $status]
      incr rank
