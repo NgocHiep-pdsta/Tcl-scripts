@@ -7,7 +7,7 @@ proc main {} {
    set file "timing.rpt"
    set hold_file "hold_timing.rpt"
    set f_detail [open "detail_timing.rpt" w]
-   puts "... Dang phan tich File: $file ..."
+   puts "... Dang phan tich File: $file ...\n"
 
    set master_data [parser_master_timing $file $hold_file $f_detail]
    if {$master_data eq "FAILED"} {
@@ -19,8 +19,8 @@ proc main {} {
    set summary_report [timing_summary_report $master_data]
    set cell_report [cell_type_report $master_data]
    set hold_report [hold_report $master_data]
-   puts $cell_report
    puts $summary_report
+   puts $cell_report
    puts $hold_report
    
    close $f_detail
