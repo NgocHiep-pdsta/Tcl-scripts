@@ -39,6 +39,7 @@ proc parser_master_timing {filename hold_filename timing_details} {
     array set count {CRITICAL 0 VIOLATED 0 WARNING 0 BORDERLINE 0 MET 0}
     array set total_by_type {}
     array set viol_by_type {}
+    set path_list {}
     set total_paths 0
     set wns ""
     set tns 0.0
@@ -53,6 +54,7 @@ proc parser_master_timing {filename hold_filename timing_details} {
       set status [classify $slack]
       incr count($status)
       incr total_paths
+      lappend path_list [list $cell $slack $status]
       if {$wns eq "" || $slack < $wns} {
          set wns $slack
       }
@@ -84,8 +86,8 @@ proc parser_master_timing {filename hold_filename timing_details} {
    dict set result viol_by_type [array get viol_by_type]
    dict set result wns $wns
    dict set result tns $tns
+   dict set result path_list $path_list
 
    return $result
 }
-
 
