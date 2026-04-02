@@ -13,15 +13,15 @@ Early standalone scripts — each script handles one task independently.
 - `script_4.tcl` — Analyze hold timing violations
 
 ### v2_mvc/
-Refactored into MVC architecture — single dict-based data contract between Parser, Controller, and Formatters.
+Refactored into modular architecture — single dict-based data contract between Parser, Controller, and Formatters.
 
-- `parser_master_timing.tcl` — Parser (Model): reads setup + hold files, classifies paths, calculates WNS/TNS, packs into dict
+- `parser_master_timing.tcl` — Parser: reads setup + hold files, classifies paths, calculates WNS/TNS, packs into dict
 - `run_master_timing.tcl` — Controller: coordinates Parser and Formatters, handles errors
 - `cell_type_report.tcl` — Formatter: violations by cell type
 - `timing_summary_report.tcl` — Formatter: timing summary with WNS/TNS
 - `hold_report.tcl` — Formatter: hold timing violations
 
-## Why MVC?
+## Why this structure?
 - Separation of concerns: Parser only collects data, Controller only coordinates, Formatters only display
 - Error handling: Parser returns FAILED flag, Controller decides to stop or continue
 - Extensible: adding new report types only requires a new Formatter file
