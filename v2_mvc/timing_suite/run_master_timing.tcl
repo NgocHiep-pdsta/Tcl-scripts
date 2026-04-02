@@ -15,7 +15,7 @@ proc main {} {
      close $f_detail
      return
    }
-   
+  
    set summary_report [timing_summary_report $master_data]
    set cell_report [cell_type_report $master_data]
    set hold_report [hold_report $master_data]

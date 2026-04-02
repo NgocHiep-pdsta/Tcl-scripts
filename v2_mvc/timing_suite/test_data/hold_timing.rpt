@@ -1,0 +1,5 @@
+FF_REG_0    slack=0.035
+FF_REG_1    slack=-0.012
+FF_REG_2    slack=0.200
+FF_REG_3    slack=-0.089
+FF_REG_4    slack=0.001

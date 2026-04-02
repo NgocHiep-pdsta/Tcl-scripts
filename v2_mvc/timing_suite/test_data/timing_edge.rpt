@@ -1,0 +1,5 @@
+U_BUF_1    slack=-0.343    VIOLATED
+U_EDGE_1   slack=1.23e-05  VIOLATED
+U_EDGE_2   slack=-0.000    MET
+U_EDGE_3   slack=-999.999  VIOLATED
+U_EDGE_4   slack=0.000     MET

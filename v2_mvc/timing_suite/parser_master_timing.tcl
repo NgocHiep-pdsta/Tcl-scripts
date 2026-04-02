@@ -5,7 +5,7 @@ proc classify {slack} {
    if {$slack < 0.5}  {return "BORDERLINE"}
    return "MET"
 }
-
+ 
 proc analyze_hold {filename} {
   if {[catch {open $filename r} f]} {
     return "FAILED"
@@ -89,5 +89,4 @@ proc parser_master_timing {filename hold_filename timing_details} {
 
    return $result
 }
-
 
