@@ -27,7 +27,7 @@ proc calc_skew_by_domain {data} {
   array set arrivals {}
   foreach e $data {
     lassign $e ff domain arrival
-    lappend arrivals($domain) [expr {int($arrival)}]
+    lappend arrivals($domain) $arrival
   }
   set result {}
   foreach domain [lsort [array names arrivals]] {
