@@ -1,19 +1,14 @@
-proc parse_drc_line {line} {
-    if {[string match "#*" $line] || [string trim $line] eq ""} {
-      return {} 
-    }
-    if {[scan $line "%s %s %d" rule layer cnt] != 3} {
-      return {}
-    }
-    return [list $rule $layer $cnt]
-}
-
 proc load_drc {filename} {
     if {[catch {open $filename r} f]} { return "FAILED" }
     set violations {}
     while {[gets $f line] >= 0} {
-        set info [parse_drc_line $line]
-        if {$info ne {}} { lappend violations $info }
+        if {[string match "#*" $line] || [string trim $line] eq ""} {
+          continue 
+        }
+        if {[scan $line "%s %s %d" rule layer cnt] != 3} {
+          continue
+        }
+        lappend violations [list $rule $layer $cnt]
     }
     close $f
     return $violations
